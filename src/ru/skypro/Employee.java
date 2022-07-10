@@ -6,21 +6,19 @@ public class Employee {
     private int departmentNumber;
     private int id;
     private static int counter = 1;
-
+    //private EmployeeBook EmployeeBook;
     public Employee(String staff, double salaryStaff, int departmentNumber) {
         this.staff = staff;
         this.salaryStaff = salaryStaff;
         this.departmentNumber = departmentNumber;
         this.id = getCounter();
-
+        counter++;
     }
 
     public static int getCounter() {
         return counter;
     }
-    public void setCounter() {
-         this.counter=counter;
-    }
+
 
     public void setStaff(String staff) {
         this.staff = staff;
@@ -49,8 +47,8 @@ public class Employee {
 
     @Override
     public String toString() {
-        this.id = getCounter();
-        counter++;
+        /*this.id = getCounter();
+        counter++;*/
         return "ФИО - " + staff + '\'' +
                 ", зарплата - " + salaryStaff +
                 ", отдел - " + departmentNumber;
