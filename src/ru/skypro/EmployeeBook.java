@@ -21,20 +21,20 @@ public class EmployeeBook {
         sumSalaryStaff(arrStaff);
         averageSalaryStaff(arrStaff);
         allNameStaff(arrStaff);
-        indexSalary(arrStaff);
-        minSalaryStaffDepartment(arrStaff);
-        maxSalaryStaffDepartment(arrStaff);
-        sumSalaryStaffDepartment(arrStaff);
-        averageSalaryStaffDepartment(arrStaff);
-        allNameStaffDepartment(arrStaff);
-        maxSalary(arrStaff);
-        minSalary(arrStaff);
-        deleteStaff(arrStaff);
-        acceptStaff(arrStaff);
-        allStaff(arrStaff);
-        changeSalaryAndDepartmentStaff(arrStaff);
+        indexSalary(arrStaff, 4.2);
+        minSalaryStaffDepartment(arrStaff, 1);
+        maxSalaryStaffDepartment(arrStaff, 1);
+        sumSalaryStaffDepartment(arrStaff, 1);
+        averageSalaryStaffDepartment(arrStaff, 1);
+        allNameStaffDepartment(arrStaff,1);
+        maxSalary(arrStaff,210000);
+        minSalary(arrStaff, 120000);
+        deleteStaff(arrStaff,"Широков Юрий Дмитриевич");
+        acceptStaff(arrStaff, "Малахов Виталий Сергеевич", 433_333, 1);
+        changeSalaryAndDepartmentStaff(arrStaff, "Щербаков Илья Андреевич", 780_390, 2);
         allStaff(arrStaff);
         sortStaffDepartment(arrStaff);
+
     }
 
     public void allStaff(Employee[] arrStaff) {
@@ -91,8 +91,7 @@ public class EmployeeBook {
             System.out.println();
         }
     }
-    public void indexSalary(Employee[] arrStaff) {
-        double index = 5.5d;
+    public void indexSalary(Employee[] arrStaff, double index) {
         int j = 1;
         for (int i = 0; i < arrStaff.length; i++) {
             arrStaff[i].setSalaryStaff(index / 100 * arrStaff[i].getSalaryStaff() + arrStaff[i].getSalaryStaff());
@@ -100,8 +99,7 @@ public class EmployeeBook {
             j++;
         }
     }
-    public void minSalaryStaffDepartment(Employee[] arrStaff) {
-        int department = 1;
+    public void minSalaryStaffDepartment(Employee[] arrStaff,int department) {
         double min = arrStaff[0].getSalaryStaff();
         String minStaff = "";
         for (int i = 0; i < arrStaff.length; i++) {
@@ -115,9 +113,8 @@ public class EmployeeBook {
         System.out.println("Самая маленькая зарпалата по отделу " + department + " составляет " + min + "руб" + " - " + minStaff);
 
     }
-    public void maxSalaryStaffDepartment(Employee[] arrStaff) {
+    public void maxSalaryStaffDepartment(Employee[] arrStaff, int department) {
         double max = arrStaff[0].getSalaryStaff();
-        int department = 1;
         String maxStaff = "";
         for (int i = 0; i < arrStaff.length; i++) {
             if (arrStaff[i].getDepartmentNumber() == department) {
@@ -129,9 +126,8 @@ public class EmployeeBook {
         }
         System.out.println("Самая маленькая зарпалата по отделу " + department + " составляет " + max + "руб" + " - " + maxStaff);
     }
-    public void sumSalaryStaffDepartment(Employee[] arrStaff) {
+    public void sumSalaryStaffDepartment(Employee[] arrStaff, int department) {
         double sum = 0;
-        int department = 1;
         for (int i = 0; i < arrStaff.length; i++) {
             if (arrStaff[i].getDepartmentNumber() == department) {
                 sum = arrStaff[i].getSalaryStaff() + sum;
@@ -140,10 +136,9 @@ public class EmployeeBook {
         System.out.println("Сумма затрат за зарплаты по отделу " + department + " составляет " + sum + "руб");
 
     }
-    public void averageSalaryStaffDepartment(Employee[] arrStaff) {
+    public void averageSalaryStaffDepartment(Employee[] arrStaff, int department) {
         double avr = 0;
         double sum = 0d;
-        int department = 1;
         int j = 0;
         for (int i = 0; i < arrStaff.length; i++) {
             if (arrStaff[i].getDepartmentNumber() == department) {
@@ -154,8 +149,7 @@ public class EmployeeBook {
         avr = sum / j;
         System.out.println("cредняя зарплата по отделу " + department + " составляет " + avr + "руб");
     }
-    public void allNameStaffDepartment(Employee[] arrStaff) {
-        int department = 1;
+    public void allNameStaffDepartment(Employee[] arrStaff, int department) {
         int j = 1;
         for (int i = 0; i < arrStaff.length; i++) {
             if (arrStaff[i].getDepartmentNumber() == department) {
@@ -165,9 +159,8 @@ public class EmployeeBook {
             j++;
         }
     }
-    public void minSalary(Employee[] arrStaff) {
+    public void minSalary(Employee[] arrStaff, int min) {
         int j = 1;
-        int min = 120_000;
         System.out.println(" Зарпалата меньше " + min + "руб у:");
         for (int i = 0; i < arrStaff.length; i++) {
             if (arrStaff[i].getSalaryStaff() < min) {
@@ -177,9 +170,8 @@ public class EmployeeBook {
             j++;
         }
     }
-    public void maxSalary(Employee[] arrStaff) {
+    public void maxSalary(Employee[] arrStaff,int max) {
         int j = 1;
-        int max = 210_000;
         System.out.println(" Зарпалата больше " + max + "руб у:");
         for (int i = 0; i < arrStaff.length; i++) {
             if (arrStaff[i].getSalaryStaff() >= max) {
@@ -189,23 +181,23 @@ public class EmployeeBook {
             j++;
         }
     }
-    public void deleteStaff(Employee[] arrStaff) {
-        String name = "Широков Юрий Дмитриевич";
+    public void deleteStaff(Employee[] arrStaff,String name) {
+
         for (int i = 0; i < arrStaff.length; i++) {
             if (arrStaff[i].getStaff() == name) {
-                arrStaff[i] = new Employee("Свободно", 0, 0);
+                arrStaff[i] = new Employee(null, 0, 0 );
             } else {
                 continue;
             }
         }
     }
-    public void acceptStaff(Employee[] arrStaff) {
+    public void acceptStaff( Employee[] arrStaff, String staff,double salaryStaff,int departmentNumber) {
         int j = 0;
         for (int i = 0; i < arrStaff.length; i++) {
-
-            if (arrStaff[i].getStaff() == "Свободно") {
-                arrStaff[i] = new Employee("Малахов Виталий Сергеевич", 353_254, 3);
+            if (arrStaff[i].getStaff() == null) {
+                arrStaff[i] = new Employee(staff, salaryStaff, departmentNumber);
                 j++;
+                break;
             } else {
                 continue;
             }
@@ -214,10 +206,7 @@ public class EmployeeBook {
             System.out.println(" Вакантных мест нет, перезвоните позже");
         }
     }
-    public void changeSalaryAndDepartmentStaff(Employee[] arrStaff) {
-        double salary = 653_817;
-        String staff = "Щербаков Илья Андреевич";
-        int department = 0;                 //0-главный отдел)
+    public void changeSalaryAndDepartmentStaff(Employee[] arrStaff, String staff, double salary, int department) {
         for (int i = 0; i < arrStaff.length; i++) {
             if (arrStaff[i].getStaff() == staff) {
                 arrStaff[i].setSalaryStaff(salary);
@@ -226,18 +215,14 @@ public class EmployeeBook {
         }
     }
     public void sortStaffDepartment(Employee[] arrStaff) {
-        Employee k;
-        for (int i = 0; i < arrStaff.length-1; i++) {
-            for (int j = 0; j < arrStaff[j].getDepartmentNumber(); j++) {
-                if (j!=i){
-                if (arrStaff[i].getDepartmentNumber() > arrStaff[j].getDepartmentNumber()) {
-                    k=arrStaff[j];
-                    arrStaff[j] = arrStaff[i];
-                    arrStaff[j]=k;
-                }
+        for (int i = 1; i < 6 ; i++) {
+            System.out.println("Отдел номер " + i);
+            for (int j = 0; j < arrStaff.length; j++) {
+                if (arrStaff[j].getDepartmentNumber()==i) {
+                    System.out.println( arrStaff[j].getStaff()+ " " + arrStaff[j].getSalaryStaff());
                 }
             }
         }
-        }
+    }
     }
 
